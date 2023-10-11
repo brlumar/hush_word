@@ -1,7 +1,32 @@
+body{
 
+}
 
 .marks {
     display: flex;
     width: 8rem;
     
+}
+
+.score-board{
+
+display: flex;
+justify-content: space-around;
+}
+
+.time-container{
+    display: flex;
+justify-content: center;
+align-items: center;
+font-family: sans-serif
+
+
+}
+
+.team{
+
+    display: flex;
+    justify-content: center;
+    background-color: #adbca5;
+
 }
