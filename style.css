@@ -1,32 +1,46 @@
-body{
-
+body {
+   
 }
 
 .marks {
     display: flex;
     width: 8rem;
-    
+
 }
 
-.score-board{
+.score-board {
 
-display: flex;
-justify-content: space-around;
-}
-
-.time-container{
     display: flex;
-justify-content: center;
-align-items: center;
-font-family: sans-serif
-
-
+    justify-content: space-around;
+    font-family: sans-serif;
 }
 
-.team{
+.time-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif
+}
+
+.team {
 
     display: flex;
     justify-content: center;
     background-color: #adbca5;
 
+}
+
+.play-area {
+    display: flex;
+    justify-content: center;
+    display: none;
+
+
+}
+
+#card-modal{
+    background-color: #adbca5;
+    display: flex;
+    justify-content: center;
+    /* display: none; */
 }

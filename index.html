@@ -41,11 +41,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#contacts">High Scores</a>
                     </li>
-                    <li class="nav-item d-md-none">
+                    <!-- <li class="nav-item d-md-none">
                         <a class="nav-link" href="#start">start</a>
-                    </li>
-                    <li class="nav-item ms-2 d-none d-md-inline">
-                        <a class="btn btn-secondary" href="#start">Start</a>
+                    </li> -->
+                    <li class="nav-item ms-2  d-md-inline" >
+                        <a class="btn btn-secondary" id="start-btn" href="#start">Start</a>
                     </li>
                 </ul>
             </div>
@@ -54,17 +54,17 @@
 
     <div class="whole">
         <div class="modal-header">
-            <section class="container-md my-5" id="top-of-container">
+            <section class="container-md my-5 " id="top-of-container">
                 <!-- <a href="./scores.html" id="high-scores">Vew High Scores</a> -->
                 <div class=".container-xxl score-board">
-                    <div class="card" style="width: 18rem;">
+                    <div class="card shadow p-3 mb-5 bg-body-tertiary rounded" style="width: 18rem;">
                         <img src="Images/Team !.png" class="card-img-top" alt="team one score image">
                         <div class="team card-body">
                             <!-- <div class="toggle-label" for="toggle-switch">Team 1</div> -->
                             <h4 class="team-one-score display-5 card-title">0</h4>
                         </div>
                     </div>
-                    <div class="team card" style="width: 18rem;">
+                    <div class="team card shadow p-3 mb-5 bg-body-tertiary rounded" style="width: 18rem;">
                         <img src="Images/Team ! (1).png" class="card-img-top" alt="team two score image">
                         <div class="team card-body">
                             <!-- <div class="toggle-label" for="toggle-switch">Team 2</div> -->
@@ -76,7 +76,7 @@
 
                 <div class="time-container display-5">
                     <h4>Timer: </h4>
-                    <div class= "display-5" id="time">0</div>
+                    <div class="display-5" id="time">0</div>
 
                 </div>
             </section>
@@ -84,12 +84,12 @@
 
 
 
-        <div class="play-area">
-            <div class="start-btn">
+        <div class="play-area" id="playarea">
+            <!-- <div class="start-btn">
                 <button class="gobtn" id="team-one-button">Team 1 Go!</button>
                 <button class="gobtn" id="team-two-button">Team 2 Go!</button>
-            </div>
-            <section class="card-section .container-md" id="card-modal">
+            </div> -->
+            <section class="card-section .container-md shadow p-3 mb-5 bg-body-tertiary rounded" id="card-modal">
                 <img src="Images/incorrect-294245_1280.png" alt="x for unsuccessful guesses"
                     class="xmark marks .img-fluid rounded float-start" id="xmark" />
 
