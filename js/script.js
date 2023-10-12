@@ -51,7 +51,7 @@ function startTurn() {
             playTimerRunning();
 
         }
-    } else if (whoseTurn = 2) {
+    } else if (whoseTurn == 2) {
         if (time == 0) {
             clearCard();
             updateCard();
@@ -118,10 +118,10 @@ function updateTimer() {
         clearInterval(timerInterval);
         playBuzzer();
         playEndTurn();
-        if (whoseTurn==1){
-            whoseTurn=2;
-        }else if(whoseTurn==2){
-            whoseTurn=1;
+        if (whoseTurn == 1) {
+            whoseTurn = 2;
+        } else {
+            whoseTurn = 1;
         }
 
     } else {
