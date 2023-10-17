@@ -1,6 +1,4 @@
-body {
-   
-}
+
 
 .marks {
     display: flex;
@@ -30,7 +28,7 @@ body {
 
 }
 
-.play-area {
+.playarea {
     display: flex;
     justify-content: center;
     display: none;

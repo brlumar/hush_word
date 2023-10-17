@@ -39,9 +39,10 @@ function startTurn() {
             clearCard();
             updateCard();
             startTimer();
+            
             time = 60; //resets the timer to 60 seconds
             clearInterval(timerInterval); //temperarily keeps the timer interval from doubling up. disabling the button while time is running with fix the issue permantantly
-
+            showCard();
             timerInterval = setInterval(updateTimer, 1000);
 
             // whoseTurn = 1;
@@ -51,14 +52,15 @@ function startTurn() {
             playTimerRunning();
 
         }
-    } else if (whoseTurn == 2) {
+    } else {
         if (time == 0) {
             clearCard();
             updateCard();
             startTimer();
+            
             time = 60; //resets the time to 60 seconds 
             clearInterval(timerInterval); //temperarily keeps the timer interval from doubling up. disabling the button while time is running with fix the issue permantantly
-
+            showCard();
             timerInterval = setInterval(updateTimer, 1000);
             // whoseTurn = 2;
             console.log("It's team ", whoseTurn, " turn.");
@@ -71,41 +73,42 @@ function startTurn() {
     }
 }
 
-function startTurnOne() {
-    if (time == 0) {
-        clearCard();
-        updateCard();
-        startTimer();
-        time = 60; //resets the timer to 60 seconds
-        clearInterval(timerInterval); //temperarily keeps the timer interval from doubling up. disabling the button while time is running with fix the issue permantantly
+// function startTurnOne() {
+//     if (time == 0) {
+//         clearCard();
+//         updateCard();
+//         startTimer();
+//         time = 60; //resets the timer to 60 seconds
+//         clearInterval(timerInterval); //temperarily keeps the timer interval from doubling up. disabling the button while time is running with fix the issue permantantly
 
-        timerInterval = setInterval(updateTimer, 1000);
+//         timerInterval = setInterval(updateTimer, 1000);
 
-        whoseTurn = 1;
-        console.log("It's team ", whoseTurn, " turn.");
-        print();
-    } else {
-        playTimerRunning();
+//         whoseTurn = 1;
+//         console.log("It's team ", whoseTurn, " turn.");
+//         print();
+//     } else {
+//         playTimerRunning();
 
-    }
-}
+//     }
+// }
 
-function startTurnTwo() {
-    if (time == 0) {
-        clearCard();
-        updateCard();
-        startTimer();
-        time = 60; //resets the time to 60 seconds 
-        clearInterval(timerInterval); //temperarily keeps the timer interval from doubling up. disabling the button while time is running with fix the issue permantantly
+// function startTurnTwo() {
+//     if (time == 0) {
 
-        timerInterval = setInterval(updateTimer, 1000);
-        whoseTurn = 2;
-        console.log("It's team ", whoseTurn, " turn.");
-        print();
-    } else {
-        playTimerRunning();
-    }
-}
+//         clearCard();
+//         updateCard();
+//         startTimer();
+//         time = 60; //resets the time to 60 seconds 
+//         clearInterval(timerInterval); //temperarily keeps the timer interval from doubling up. disabling the button while time is running with fix the issue permantantly
+
+//         timerInterval = setInterval(updateTimer, 1000);
+//         whoseTurn = 2;
+//         console.log("It's team ", whoseTurn, " turn.");
+//         print();
+//     } else {
+//         playTimerRunning();
+//     }
+// }
 
 function print() { //used just to make sure the whoseTurn varible is changing outside of the function. TO BE DELETED
     console.log("It's team ", whoseTurn, " turn outside of the function.");
@@ -116,12 +119,13 @@ function updateTimer() {
     timeElement.innerText = time;
     if (time <= 0) {
         clearInterval(timerInterval);
+        hideCard();
         playBuzzer();
         playEndTurn();
         if (whoseTurn == 1) {
-            whoseTurn = 2;
-        } else {
-            whoseTurn = 1;
+            whoseTurn++;
+        } else if (whoseTurn == 2) {
+            whoseTurn--;
         }
 
     } else {
@@ -177,7 +181,7 @@ function showCard() {
 }
 
 function hideCard() {
-    cardModal.style.display = 'none'
+    playarea.style.display = 'none';
 }
 
 showCard();
@@ -227,4 +231,4 @@ function playAww() {
 
 correctBTN.addEventListener('click', addToScore);
 incorrectBTN.addEventListener('click', pass);
-startBtn.addEventListener('click', startTurnOne);
+startBtn.addEventListener('click', startTurn);
