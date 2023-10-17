@@ -28,16 +28,16 @@
 
 }
 
-.playarea {
-    display: flex;
-    justify-content: center;
+#playarea {
     display: none;
+    justify-content: center;
+    /* display: none; */
 
 
 }
 
 #card-modal{
-    background-color: #adbca5;
+    background-color: #db4c4c;
     display: flex;
     justify-content: center;
     /* display: none; */
