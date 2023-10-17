@@ -1,10 +1,18 @@
-
-
 .marks {
     display: flex;
-    width: 8rem;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 6rem;
+    height: 6rem;
 
 }
+
+/* .checkmark {
+    width: 8rem;
+    height: 8rem;
+
+} */
+
 
 .score-board {
 
@@ -28,17 +36,29 @@
 
 }
 
+
+
 #playarea {
     display: none;
     justify-content: center;
+
     /* display: none; */
 
 
 }
 
-#card-modal{
+#card-modal {
     /* background-color: #db4c4c; */
     display: flex;
     justify-content: center;
+  
     /* display: none; */
+}
+
+/* WordList styling */
+
+.wordlist-card {
+    display: flex;
+    justify-content: space-between;
+    justify-content: space-around;
 }
