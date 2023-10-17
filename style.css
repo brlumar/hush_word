@@ -1,3 +1,8 @@
+/* .team-label{
+    width: 6rem;
+    height: 6rem;
+} */
+
 .marks {
     display: flex;
     margin-top: auto;
@@ -7,11 +12,7 @@
 
 }
 
-/* .checkmark {
-    width: 8rem;
-    height: 8rem;
 
-} */
 
 
 .score-board {
@@ -19,13 +20,16 @@
     display: flex;
     justify-content: space-around;
     font-family: sans-serif;
+   
 }
 
 .time-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: sans-serif
+    font-family: sans-serif;
+    
+    
 }
 
 .team {
