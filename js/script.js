@@ -184,7 +184,9 @@ function hideCard() {
     playarea.style.display = 'none';
 }
 
-showCard();
+
+
+// showCard();
 
 function clearCard() {
     guessWordEl.innerText = '';

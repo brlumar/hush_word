@@ -2,6 +2,13 @@
     width: 6rem;
     height: 6rem;
 } */
+body{
+background-image: url(Images/jellyfish-6327182.jpg);
+background-position: center;
+background-repeat: no-repeat;
+background-size: 100%;
+
+}
 
 .marks {
     display: flex;
