@@ -3,11 +3,17 @@
     height: 6rem;
 } */
 body{
-background-image: url(Images/jellyfish-6327182.jpg);
-background-position: center;
+background-image: url(Images/indoor-2559702.jpg);
+background-position: bottom;
 background-repeat: no-repeat;
-background-size: 100%;
+background-size: cover;
+height: 100vh;
+margin: 0;
 
+}
+
+.navbar-no-collapse .navbar-collapse {
+    flex-basis: auto;
 }
 
 .marks {
@@ -32,7 +38,8 @@ background-size: 100%;
 
 .time-container {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-around;
     align-items: center;
     font-family: sans-serif;
     
