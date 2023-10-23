@@ -80,3 +80,7 @@ margin: 0;
     justify-content: space-between;
     justify-content: space-around;
 }
+
+#howTo{
+    display:none;
+}

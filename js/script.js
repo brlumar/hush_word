@@ -14,8 +14,11 @@ const audioElCorrect = document.getElementById('correct');
 const audioElTimerEnd = document.getElementById('timer-running');
 const audioElAww = document.getElementById('aww');
 const playarea = document.getElementById('playarea');
-const startBtn = document.getElementById('start-btn');
+const startBtn = document.getElementById('start-btn'); //points to the button that starts the game
 
+const howToBtn = document.getElementById('howToBtn'); //points to the how to play button on the DOM
+const howTo = document.getElementById('howTo'); //points to the section of the dom that shows the how to play modal
+const hideHowToBtn = document.getElementById('hide-how-to');//points to "back to game" btn
 
 let scoreOneDisplay = document.querySelector('.team-one-score'); //points to team one display in the DOM
 let scoreTwoDisplay = document.querySelector('.team-two-score'); //points to team two display in the DOM
@@ -30,6 +33,8 @@ let teamScoreTwo = 0; //holds the score for team two
 let whoseTurn = 1;
 
 let cardModal = document.getElementById('card-modal');
+
+
 
 
 
@@ -133,9 +138,9 @@ function updateTimer() {
     }
 }
 
-function startTimer() {
+// function startTimer() {
 
-}
+// }
 
 
 
@@ -227,6 +232,16 @@ function playAww() {
     audioElAww.play();
 }
 
+function showHowTo(){ //shows the instructions when "How To Play" is clicked
+    howTo.style.display = 'block';
+
+}
+function hideHowTo(){ //shows the instructions when "How To Play" is clicked
+    howTo.style.display = 'none';
+
+}
+
+
 // startOne.addEventListener('click', startTurnOne); //starts team one when Go button is pressed
 // startTwo.addEventListener('click', startTurnTwo); //starts team two when Go button is pressed
 
@@ -234,3 +249,5 @@ function playAww() {
 correctBTN.addEventListener('click', addToScore);
 incorrectBTN.addEventListener('click', pass);
 startBtn.addEventListener('click', startTurn);
+howToBtn.addEventListener('click', showHowTo);
+hideHowToBtn.addEventListener('click', hideHowTo);
