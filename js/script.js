@@ -138,9 +138,9 @@ function updateTimer() {
     }
 }
 
-// function startTimer() {
+function startTimer() {
 
-// }
+}
 
 
 
