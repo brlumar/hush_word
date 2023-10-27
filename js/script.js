@@ -90,6 +90,7 @@ function startTurn() {
             clearCard();
             updateCard();
             startTimer();
+            hideWordList();
 
             time = 60; //resets the timer to 60 seconds
             clearInterval(timerInterval); //temperarily keeps the timer interval from doubling up. disabling the button while time is running with fix the issue permantantly
@@ -108,6 +109,7 @@ function startTurn() {
             clearCard();
             updateCard();
             startTimer();
+            hideWordList();
 
             time = 60; //resets the time to 60 seconds 
             clearInterval(timerInterval); //temperarily keeps the timer interval from doubling up. disabling the button while time is running with fix the issue permantantly
@@ -173,6 +175,7 @@ function updateTimer() {
         hideCard();
         playBuzzer();
         playEndTurn();
+        showWordList();
         if (whoseTurn == 1) {
             whoseTurn++;
         } else if (whoseTurn == 2) {
@@ -290,6 +293,15 @@ function showCard() {
 function hideCard() {
     playarea.style.display = 'none';
 }
+
+function showWordList(){
+wordlistContainer.style.display = 'flex'
+
+}
+function hideWordList(){
+    wordlistContainer.style.display = 'none'
+    
+    }
 
 
 
