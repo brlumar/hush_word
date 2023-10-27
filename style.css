@@ -84,3 +84,9 @@ margin: 0;
 #howTo{
     display:none;
 }
+
+
+.word-list{
+display: flex;
+justify-content: space-evenly;
+}

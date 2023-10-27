@@ -20,12 +20,17 @@ const howToBtn = document.getElementById('howToBtn'); //points to the how to pla
 const howTo = document.getElementById('howTo'); //points to the section of the dom that shows the how to play modal
 const hideHowToBtn = document.getElementById('hide-how-to');//points to "back to game" btn
 
+const answerButtons = document.getElementById('answer-buttons');
+
+let index = 0;
+
 let scoreOneDisplay = document.querySelector('.team-one-score'); //points to team one display in the DOM
 let scoreTwoDisplay = document.querySelector('.team-two-score'); //points to team two display in the DOM
 
 
+let randomIndex = Math.floor(Math.random() * cardData.length);
 
-let currentCardIndex = 0; //index that indicates which card is currently being displayed
+let currentCardIndex = Math.floor(Math.random() * cardData.length); //index that indicates which card is currently being displayed
 let time = 0; //seconds allowed per turn
 let timerInterval; //variable for the clock interval
 let teamScoreOne = 0; //holds the score for team one
@@ -33,7 +38,48 @@ let teamScoreTwo = 0; //holds the score for team two
 let whoseTurn = 1;
 
 let cardModal = document.getElementById('card-modal');
+''
 
+let team1words = [];
+
+// let team1words = [{
+//     word: "airplane",
+//     correctness: true
+// },
+// {
+//     word: "cereal",
+//     correctness: true
+// }];
+
+// let newword = {
+//     word: "shoebox",
+//     correctness: false
+// }
+
+// team1words.push(newword);
+// console.log(team1words);
+
+// team1words.forEach(word => {
+//     console.log("this is ", team1words[index].word);
+// }
+// );
+
+function toggleCorrectness() {
+    console.log("correctness changed");
+}
+
+team1words.forEach(word => {
+
+    const button = document.createElement('button'); //creates a button
+    button.innerText = team1words[index].word; //changes the inner text of the button
+    index++;
+    console.log('index is :', index);
+    button.classList.add('btn');
+    button.classList.add('list-group-item');
+
+    button.addEventListener('click', toggleCorrectness);
+    answerButtons.appendChild(button);
+});
 
 
 
@@ -44,7 +90,7 @@ function startTurn() {
             clearCard();
             updateCard();
             startTimer();
-            
+
             time = 60; //resets the timer to 60 seconds
             clearInterval(timerInterval); //temperarily keeps the timer interval from doubling up. disabling the button while time is running with fix the issue permantantly
             showCard();
@@ -62,7 +108,7 @@ function startTurn() {
             clearCard();
             updateCard();
             startTimer();
-            
+
             time = 60; //resets the time to 60 seconds 
             clearInterval(timerInterval); //temperarily keeps the timer interval from doubling up. disabling the button while time is running with fix the issue permantantly
             showCard();
@@ -143,21 +189,73 @@ function startTimer() {
 }
 
 
+function writeToWordList() {
+    const currentWord = cardData[currentCardIndex]; //stores the current questions into a const for easier, cleaner use in function
+    team1words.push(currentWord.guessWord);
+    const button = document.createElement('li'); //creates a list item to later be made clickable
+    button.innerText = currentWord.guessWord; //changes the inner text of the button
+    // index++;
+    // console.log('index is :', index);
+    button.classList.add('btn');
+    button.classList.add('list-group-item');
 
+    button.addEventListener('click', toggleCorrectness);
+    answerButtons.appendChild(button);
+
+}
+
+function writeToWordListPass() { //adds passed words to wordlist
+    const currentWord = cardData[currentCardIndex]; //stores the current questions into a const for easier, cleaner use in function
+    team1words.push(currentWord.guessWord);
+    const button = document.createElement('li'); //creates a list item to later be made clickable
+    button.innerText = currentWord.guessWord; //changes the inner text of the button
+    // index++;
+    // console.log('index is :', index);
+    button.classList.add('btn');
+    button.classList.add('list-group-item');
+    button.classList.add('text-decoration-line-through');
+    button.classList.add('fw-lighter');
+
+
+    button.addEventListener('click', toggleCorrectness);
+    answerButtons.appendChild(button);
+
+}
 
 
 function addToScore() {
     if (time >= 0) {
+        writeToWordList();
+        // const currentWord = cardData[currentCardIndex]; //stores the current questions into a const for easier, cleaner use in function
+        // team1words.push(currentWord.guessWord);
+        // const button = document.createElement('button'); //creates a button
+        // button.innerText = currentWord.guessWord; //changes the inner text of the button
+        // // index++;
+        // // console.log('index is :', index);
+        // button.classList.add('btn');
+        // button.classList.add('list-group-item');
+
+        // button.addEventListener('click', toggleCorrectness);
+        // answerButtons.appendChild(button);
         writeScore();
+
+
         console.log('score one is: ', teamScoreOne, 'score two is: ', teamScoreTwo);
         clearCard();
+        currentCardIndex = Math.floor(Math.random() * cardData.length);
+
         updateCard();
+
     }
 }
 
 function pass() {
+    writeToWordListPass();
     clearCard();
+    currentCardIndex = randomIndex = Math.floor(Math.random() * cardData.length);
+
     updateCard();
+
     playAww();
 }
 
@@ -172,11 +270,15 @@ function writeScore() {
         scoreTwoDisplay.innerText = teamScoreTwo;
         console.log("It's team ", whoseTurn, " turn in writeScore func.");
         playCorrect();
+
     }
 }
 
 
+function gotItRight() {
 
+
+}
 
 
 function showCard() {
@@ -209,7 +311,6 @@ function updateCard() { //Function that updates the card information
     buzzWord2El.innerText = word.tabooWords[1].buzzword;
     buzzWord3El.innerText = word.tabooWords[2].buzzword;
     buzzWord4El.innerText = word.tabooWords[3].buzzword;
-    currentCardIndex++;
 
 
 }
@@ -232,11 +333,11 @@ function playAww() {
     audioElAww.play();
 }
 
-function showHowTo(){ //shows the instructions when "How To Play" is clicked
+function showHowTo() { //shows the instructions when "How To Play" is clicked
     howTo.style.display = 'block';
 
 }
-function hideHowTo(){ //shows the instructions when "How To Play" is clicked
+function hideHowTo() { //shows the instructions when "How To Play" is clicked
     howTo.style.display = 'none';
 
 }
