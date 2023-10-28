@@ -21,6 +21,8 @@ const howTo = document.getElementById('howTo'); //points to the section of the d
 const hideHowToBtn = document.getElementById('hide-how-to');//points to "back to game" btn
 
 const answerButtons = document.getElementById('answer-buttons');
+const answerButtons2 = document.getElementById('answer-buttons2');
+
 
 let index = 0;
 
@@ -172,9 +174,11 @@ function updateTimer() {
     timeElement.innerText = time;
     if (time <= 0) {
         clearInterval(timerInterval);
+        writeToWordListPass();
         hideCard();
         playBuzzer();
         playEndTurn();
+        
         showWordList();
         if (whoseTurn == 1) {
             whoseTurn++;
@@ -203,8 +207,12 @@ function writeToWordList() {
     button.classList.add('list-group-item');
 
     button.addEventListener('click', toggleCorrectness);
-    answerButtons.appendChild(button);
+    if (whoseTurn == 1) {
+        answerButtons.appendChild(button);
+    } else {
+        answerButtons2.appendChild(button);
 
+    }
 }
 
 function writeToWordListPass() { //adds passed words to wordlist
@@ -221,8 +229,12 @@ function writeToWordListPass() { //adds passed words to wordlist
 
 
     button.addEventListener('click', toggleCorrectness);
+    if (whoseTurn == 1) {
     answerButtons.appendChild(button);
+    }else{
+        answerButtons2.appendChild(button);
 
+    }
 }
 
 
@@ -294,14 +306,14 @@ function hideCard() {
     playarea.style.display = 'none';
 }
 
-function showWordList(){
-wordlistContainer.style.display = 'flex'
+function showWordList() {
+    wordlistContainer.style.display = 'flex'
 
 }
-function hideWordList(){
+function hideWordList() {
     wordlistContainer.style.display = 'none'
-    
-    }
+
+}
 
 
 
