@@ -19,6 +19,8 @@ const startBtn = document.getElementById('start-btn'); //points to the button th
 const howToBtn = document.getElementById('howToBtn'); //points to the how to play button on the DOM
 const howTo = document.getElementById('howTo'); //points to the section of the dom that shows the how to play modal
 const hideHowToBtn = document.getElementById('hide-how-to');//points to "back to game" btn
+const wordListBtn = document.getElementById('wordListBtn'); //points to the section of the dom that shows the how to play modal
+
 
 const answerButtons = document.getElementById('answer-buttons');
 const answerButtons2 = document.getElementById('answer-buttons2');
@@ -205,6 +207,8 @@ function writeToWordList() {
     // console.log('index is :', index);
     button.classList.add('btn');
     button.classList.add('list-group-item');
+    button.classList.add('text-bg-success');
+
 
     button.addEventListener('click', toggleCorrectness);
     if (whoseTurn == 1) {
@@ -226,6 +230,8 @@ function writeToWordListPass() { //adds passed words to wordlist
     button.classList.add('list-group-item');
     button.classList.add('text-decoration-line-through');
     button.classList.add('fw-lighter');
+    // button.classList.add('text-bg-warning');
+
 
 
     button.addEventListener('click', toggleCorrectness);
@@ -359,10 +365,12 @@ function playAww() {
 
 function showHowTo() { //shows the instructions when "How To Play" is clicked
     howTo.style.display = 'block';
+    hideWordList();
 
 }
 function hideHowTo() { //shows the instructions when "How To Play" is clicked
     howTo.style.display = 'none';
+
 
 }
 
@@ -376,3 +384,4 @@ incorrectBTN.addEventListener('click', pass);
 startBtn.addEventListener('click', startTurn);
 howToBtn.addEventListener('click', showHowTo);
 hideHowToBtn.addEventListener('click', hideHowTo);
+wordListBtn.addEventListener('click', showWordList);
